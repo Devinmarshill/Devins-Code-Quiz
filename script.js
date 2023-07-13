@@ -5,6 +5,7 @@ var scoreLabel = document.getElementById('score');
 var initialInput = document.getElementById('initial-input');
 var saveButton = document.getElementById('save-btn');
 var highscoreSection = document.getElementById('highscore-section');
+var goBackButton = document.getElementById('goback-btn');
 
 // the following code defines the quiz question and answers
 var quizQuestions = [
@@ -108,6 +109,15 @@ function saveScore() {
   }
 }
 
+function goBackButton(){
+  score = 0;
+  currentQuestionIndex = 0;
+  userAnswers = [];
+  displayQuestion();
+}
+
 
 startButton.addEventListener('click', startQuiz);
 saveButton.addEventListener('click', saveScore);
+goBackButton.addEventListener('click', window.history.back()
+)
