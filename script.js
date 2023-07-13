@@ -63,7 +63,7 @@ function handleAnswerClick(event) {
 
   if (selectedAnswer === currentQuestion.answer) {
     // Correct answer
-    score += 10;
+    score += 100;
   } else {
     // Incorrect answer
     timeLeft -= 10;
