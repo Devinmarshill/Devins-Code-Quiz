@@ -81,3 +81,32 @@ function handleAnswerClick(event) {
   }
 }
 
+// the following function is how the user will end the quiz
+function endQuiz() {
+  questionSection.classList.add('hide');
+  document.getElementById('score').textContent = score;
+  document.getElementById('initial-section').classList.remove('hide');
+}
+
+// Function to save the score and initials
+function saveScore() {
+  var initials = initialInput.value.trim();
+  if (initials !== '') {
+    // the following line of code will save the score and initials
+    var highscoreList = document.querySelector('#highscore-section ol');
+    var scoreItem = document.createElement('li');
+    scoreItem.textContent = initials + '-' + score;
+    highscoreList.appendChild(scoreItem);
+
+    initialInput.value = '';
+    initialInput.disabled = true;
+    saveButton.disabled = true;
+
+    // the following line of code will show the highscore section
+    highscoreSection.classList.remove('hide');
+  }
+}
+
+
+startButton.addEventListener('click', startQuiz);
+saveButton.addEventListener('click', saveScore);
